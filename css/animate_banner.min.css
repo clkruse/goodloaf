@@ -8,15 +8,14 @@
   }
 
 .hero__title {
+    padding-bottom: 8vh;
     color: #fff;
     letter-spacing: .2px;
-    justify-content: top;
     font-family: "Oi", sans-serif;
-    font-size: 90px;
+    font-size: 8vw;
     font-weight: 10;
     line-height: 1.2;
     margin: 20px 0 0;
-    z-index: 10;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     cursor: default,
 }
