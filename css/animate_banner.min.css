@@ -1,11 +1,16 @@
 @font-face {
-    font-family: 'Oi';
-    src: url('../fonts/Oi-Regular.ttf') format('truetype');
-    font-family: 'Ultra';
-    src: url('../fonts/Ultra-Regular.ttf') format('truetype');
     font-family: 'Shrikhand';
     src: url('../fonts/Shrikhand-Regular.ttf') format('truetype');
   }
+@font-face {
+    font-family: 'Oi';
+  src: url('../fonts/Oi-Regular.ttf');
+  }
+  
+@font-face {
+    font-family: 'Ultra';
+    src: url('../fonts/Ultra-Regular.ttf') format('truetype');
+}
 
 .hero__title {
     padding-bottom: 8vh;
