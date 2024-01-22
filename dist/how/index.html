@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ScrollyVideo HTML Demo</title>
+
+    <style>
+      body, html, * {
+        margin: 0;
+        padding: 0;
+      };
+      .mt-20 video {
+      height: 400px !important;
+      min-height: unset !important;
+      }
+    </style>
+  </head>
+
+<body>
+  
+    <div style="height: 1000vh; width: 100vw">
+      <div id="scrolly-video" class="mt-20"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
+  <script type="text/javascript">
+    new ScrollyVideo({
+      scrollyVideoContainer: "scrolly-video",
+      src: "bread-color-adjust-720vfast.mp4",
+      transitionSpeed: 1,
+      frameThreshold: 0.1,
+      cover: true
+    });
+
+    
+  </script>
+</body>
+</html>
