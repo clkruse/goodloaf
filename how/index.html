@@ -1,40 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ScrollyVideo HTML Demo</title>
+<head>
+  <style>
+    body {
+      background-color: #222;
+      color: #eee;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    h1 {
+      border-bottom: 1px solid #ddd;
+      display: inline-block;
+      text-align: center;
+      margin: .5rem auto 2rem;
+      padding-bottom: .5rem;
+    }
+    .scroll-spacer {
+      align-items: center;
+      background-color: #1a1a1a;
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      height: 25vh;
+      margin: 1em auto;
+      width: 90%;
+    }
+    video {
+      display: block;
+      height: auto;
+      margin: auto;
+      position: relative;
+      width: 100%;
+    }
+    .video-wrap {
+      margin: 0 auto;
+      position: relative;
+      width: 90%;
+    }
 
-    <style>
-      body, html, * {
-        margin: 0;
-        padding: 0;
-      };
-      .mt-20 video {
-      height: 400px !important;
-      min-height: unset !important;
-      }
-    </style>
-  </head>
+  </style>
+</head>
 
 <body>
-  
-    <div style="height: 1000vh; width: 100vw">
-      <div id="scrolly-video" class="mt-20"></div>
-  </div>
+<h1>Video Scroll Autoplay</h1>
+<div class='scroll-spacer'>
+  <h2>Add the sourdough</h2>
+  <br>
+</div>
+<div class='video-wrap'>
+  <video autoplay muted playsinline loop poster="http://placehold.it/350x350">
+    <source src="step_1.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
-  <script type="text/javascript">
-    new ScrollyVideo({
-      scrollyVideoContainer: "scrolly-video",
-      src: "bread-color-adjust-720vfast.mp4",
-      transitionSpeed: 1,
-      frameThreshold: 0.1,
-      cover: true
-    });
+<div class='scroll-spacer'>
+  <h2>mix in the flour</h2></div>
+<div class='video-wrap'>
+  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+    <source src="step_2.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
 
-    
-  </script>
+<div class='scroll-spacer'>
+  <h2>add salt and mix</h2></div>
+<div class='video-wrap'>
+  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+    <source src="step_3.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+<div class='scroll-spacer'>
+  <h2>fold and bulk rise</h2></div>
+<div class='video-wrap'>
+  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+    <source src="step_4.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+<div class='scroll-spacer'>
+  <h2>shape on the counter</h2></div>
+<div class='video-wrap'>
+  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+    <source src="step_5.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+<div class='scroll-spacer'>
+  <h2>proof</h2></div>
+<div class='video-wrap'>
+  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+    <source src="step_6.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+<div class='scroll-spacer'>
+  <h2>score the loaf</h2></div>
+<div class='video-wrap'>
+  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+    <source src="step_7.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+<div class='scroll-spacer'>
+  <h2>cook!</h2></div>
+<div class='video-wrap'>
+  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+    <source src="step_8.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+
+<script>
+  var isFading = false;
+
+  function handleVideoEnd() {
+    var videoEl = document.getElementById('loopVideo');
+    videoEl.currentTime = 0;
+  }
+
+  function handleVideoTimeUpdate() {
+    var videoEl = document.getElementById('loopVideo');
+    var fadeDuration = 1; // Duration of the fade effect in seconds
+
+    if (videoEl.currentTime >= videoEl.duration - fadeDuration && !isFading) {
+      isFading = true;
+      fadeOut(videoEl, function () {
+        videoEl.currentTime = 0;
+        isFading = false;
+        fadeIn(videoEl);
+      });
+    }
+  }
+
+  function fadeOut(element, callback) {
+    element.style.transition = 'opacity 0.75s';
+    element.style.opacity = 0;
+    setTimeout(function () {
+      if (callback) callback();
+    }, 750);
+  }
+
+  function fadeIn(element) {
+    element.style.transition = 'opacity 0.75s';
+    element.style.opacity = 1;
+  }
+</script>
+
 </body>
-</html>
