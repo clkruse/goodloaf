@@ -1,160 +1,163 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <style>
-    body {
-      background-color: #222;
-      color: #eee;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 2em;
-      text-align: center;
-      text-transform: uppercase;
-    }
-    h1 {
-      border-bottom: 1px solid #ddd;
-      display: inline-block;
-      text-align: center;
-      margin: .5rem auto 2rem;
-      padding-bottom: .5rem;
-    }
-    .scroll-spacer {
-      align-items: center;
-      background-color: #1a1a1a;
-      border-radius: 30px;
-      display: flex;
-      justify-content: center;
-      height: 25vh;
-      margin: 1em auto;
-      width: 90%;
-    }
-    video {
-      display: block;
-      height: auto;
-      margin: auto;
-      position: relative;
-      width: 100%;
-    }
-    .video-wrap {
-      margin: 0 auto;
-      position: relative;
-      width: 90%;
-    }
 
-  </style>
+<head>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<h1>Video Scroll Autoplay</h1>
-<div class='scroll-spacer'>
-  <h2>Add the sourdough</h2>
-  <br>
-</div>
-<div class='video-wrap'>
-  <video autoplay muted playsinline loop poster="http://placehold.it/350x350">
-    <source src="step_1.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-</div>
+  <h1>
+    How to Make Bread
+  </h1>
+  <div class='text-content'>
+    <h2>Step 1 - Add the sourdough</h2>
+    <p>
+      Add 360-380 grams of 88-92°F water at a temperature to a large bowl followed by 100 grams of sourdough starter. If your sourdough is in good shape, it should float in the water. Mix the sourdough starter into the water until it is fully dissolved.
+    </p>
+    <p>
+      High hydration doughs make for good bread, but can be sticky and hard to handle. I wouldn't recommend exceeding 380 grams of water.
+    </p>
+  </div>
+  <div class='video-wrap'>
+    <video autoplay muted playsinline loop>
+      <source src="step_1.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-<div class='scroll-spacer'>
-  <h2>mix in the flour</h2></div>
-<div class='video-wrap'>
-  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
-    <source src="step_2.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-</div>
+  <div class='text-content'>
+    <h2>Step 2 - Mix flour and autolyse</h2>
+    <p>
+      Add 500 grams of flour to the bowl. I typically mix 400 grams of white flour with 100 grams of wheat, but you can adjust this to taste. Mix the flour and water until it forms a shaggy dough. At the start of mixing, it will feel like there isn't possibly enough water for all of this flour. And yet, it works every time.
+    </p>
+    <p>
+      Note that wheat flour absorbs more water than white. If you use a higher percentage of wheat, you may need to add more water in the first step.
+    </p>
+  </div>
+  <div class='video-wrap'>
+    <video id="loopVideo" autoplay muted playsinline loop
+      onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+      <source src="step_2.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-<div class='scroll-spacer'>
-  <h2>add salt and mix</h2></div>
-<div class='video-wrap'>
-  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
-    <source src="step_3.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-</div>
+  <div class='text-content'>
+    <h2>add salt and mix</h2>
+  </div>
+  <div class='video-wrap'>
+    <video id="loopVideo" autoplay muted playsinline loop
+      onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+      <source src="step_3.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-<div class='scroll-spacer'>
-  <h2>fold and bulk rise</h2></div>
-<div class='video-wrap'>
-  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
-    <source src="step_4.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-</div>
+  <div class='text-content'>
+    <h2>fold and bulk rise</h2>
+  </div>
+  <div class='video-wrap'>
+    <video id="loopVideo" autoplay muted playsinline loop
+      onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+      <source src="step_4.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-<div class='scroll-spacer'>
-  <h2>shape on the counter</h2></div>
-<div class='video-wrap'>
-  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
-    <source src="step_5.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-</div>
+  <div class='text-content'>
+    <h2>shape on the counter</h2>
+  </div>
+  <div class='video-wrap'>
+    <video id="loopVideo" autoplay muted playsinline loop
+      onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+      <source src="step_5.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-<div class='scroll-spacer'>
-  <h2>proof</h2></div>
-<div class='video-wrap'>
-  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
-    <source src="step_6.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-</div>
+  <div class='text-content'>
+    <h2>proof</h2>
+  </div>
+  <div class='video-wrap'>
+    <video id="loopVideo" autoplay muted playsinline loop
+      onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+      <source src="step_6.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-<div class='scroll-spacer'>
-  <h2>score the loaf</h2></div>
-<div class='video-wrap'>
-  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
-    <source src="step_7.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-</div>
+  <div class='text-content'>
+    <h2>score the loaf</h2>
+  </div>
+  <div class='video-wrap'>
+    <video id="loopVideo" autoplay muted playsinline loop
+      onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+      <source src="step_7.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-<div class='scroll-spacer'>
-  <h2>cook!</h2></div>
-<div class='video-wrap'>
-  <video id="loopVideo" autoplay muted playsinline loop poster="http://placehold.it/350x350" onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
-    <source src="step_8.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-</div>
+  <div class='text-content'>
+    <h2>cook!</h2>
+  </div>
+  <div class='video-wrap'>
+    <video id="loopVideo" autoplay muted playsinline loop
+      onended="handleVideoEnd()" ontimeupdate="handleVideoTimeUpdate()">
+      <source src="step_8.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
 
-<script>
-  var isFading = false;
+  <script>
+    window.addEventListener('load', videoScroll);
+    window.addEventListener('scroll', videoScroll);
 
-  function handleVideoEnd() {
-    var videoEl = document.getElementById('loopVideo');
-    videoEl.currentTime = 0;
-  }
+    function videoScroll() {
+      if (document.querySelectorAll('video[autoplay]').length > 0) {
+        var windowHeight = window.innerHeight,
+          videoEl = document.querySelectorAll('video[autoplay]');
 
-  function handleVideoTimeUpdate() {
-    var videoEl = document.getElementById('loopVideo');
-    var fadeDuration = 1; // Duration of the fade effect in seconds
+        for (var i = 0; i < videoEl.length; i++) {
+          var thisVideoEl = videoEl[i],
+            videoHeight = thisVideoEl.clientHeight,
+            videoClientRect = thisVideoEl.getBoundingClientRect().top;
 
-    if (videoEl.currentTime >= videoEl.duration - fadeDuration && !isFading) {
-      isFading = true;
-      fadeOut(videoEl, function () {
-        videoEl.currentTime = 0;
-        isFading = false;
-        fadeIn(videoEl);
-      });
+          if (
+            videoClientRect <=
+              0.5 * windowHeight &&
+            videoClientRect >=
+              0 - videoHeight
+          ) {
+            playVideo(thisVideoEl);
+          } else {
+            pauseVideo(thisVideoEl);
+          }
+        }
+      }
     }
-  }
 
-  function fadeOut(element, callback) {
-    element.style.transition = 'opacity 0.75s';
-    element.style.opacity = 0;
-    setTimeout(function () {
-      if (callback) callback();
-    }, 750);
-  }
+    function playVideo(video) {
+        if (!video.hasAttribute('data-played')) {
+            video.play();
+            video.setAttribute('data-played', true);
 
-  function fadeIn(element) {
-    element.style.transition = 'opacity 0.75s';
-    element.style.opacity = 1;
-  }
+            // Pause other videos
+            var allVideos = document.querySelectorAll('video[autoplay]');
+            for (var i = 0; i < allVideos.length; i++) {
+                if (allVideos[i] !== video) {
+                    allVideos[i].pause();
+                    allVideos[i].removeAttribute('data-played');
+                }
+            }
+        }
+    }
+
+    function pauseVideo(video) {
+        video.pause();
+        video.removeAttribute('data-played');
+    }
 </script>
+
 
 </body>
